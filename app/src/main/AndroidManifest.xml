@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- permission for internet -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-    <!--permission for internet-->
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App_English"
         tools:targetApi="31">
+        <activity
+            android:name=".Quiz"
+            android:exported="false" />
         <activity
             android:name=".EnglishTranslator"
             android:exported="false" />
