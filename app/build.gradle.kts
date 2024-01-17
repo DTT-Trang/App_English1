@@ -42,6 +42,7 @@ dependencies {
     implementation("com.google.firebase:firebase-ml-natural-language:22.0.1")
     implementation("com.google.firebase:firebase-ml-natural-language-language-id-model:20.0.8")
     implementation("com.google.firebase:firebase-ml-natural-language-translate-model:20.0.9")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
