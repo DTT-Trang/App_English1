@@ -25,6 +25,8 @@ public class myVocabulary extends AppCompatActivity {
     ValueEventListener eventListener;
     RecyclerView recyclerView;
     List<DataClass> dataList;
+    MyAdapter adapter;
+    SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class myVocabulary extends AppCompatActivity {
         setContentView(R.layout.activity_my_vocabulary);
         recyclerView = findViewById(R.id.recyclerView);
         fab = findViewById(R.id.fab);
+        searchView = findViewById(R.id.search);
+        searchView.clearFocus();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(myVocabulary.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -42,7 +46,7 @@ public class myVocabulary extends AppCompatActivity {
         dialog.show();
         dataList = new ArrayList<>();
 
-        MyAdapter adapter = new MyAdapter(myVocabulary.this, dataList);
+        adapter = new MyAdapter(myVocabulary.this, dataList);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Android Tutorials");
@@ -65,6 +69,17 @@ public class myVocabulary extends AppCompatActivity {
                 dialog.dismiss();
             }
         });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +88,15 @@ public class myVocabulary extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void searchList(String text){
+        ArrayList<DataClass> searchList = new ArrayList<>();
+        for (DataClass dataClass: dataList){
+            if (dataClass.getDataTitle().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(dataClass);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 
 }
