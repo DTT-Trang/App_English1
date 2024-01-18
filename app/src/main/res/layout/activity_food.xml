@@ -32,6 +32,7 @@
 <!--    Quiz chỉ hiển thị các câu hỏi mặc định -->
 
     <Button
+        android:id="@+id/btnQuiz"
         android:layout_width="100dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"

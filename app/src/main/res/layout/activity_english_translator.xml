@@ -7,7 +7,7 @@
     android:background="@color/black_shade_1"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    style="@style/AppTheme.MaterialTheme"
+    style="@style/Theme.App_English."
     tools:ignore="ExtraText">
 
     <TextView
