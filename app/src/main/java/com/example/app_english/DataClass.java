@@ -6,6 +6,7 @@ public class DataClass {
     private String dataLang;
     private String dataImage;
 
+
     public String getDataTitle() {
         return dataTitle;
     }
@@ -28,4 +29,8 @@ public class DataClass {
         this.dataLang = dataLang;
         this.dataImage = dataImage;
     }
+    public DataClass(){
+
+    }
+
 }
